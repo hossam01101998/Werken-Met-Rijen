@@ -1,6 +1,6 @@
 ﻿using Werken_Met_Rijen;
 
-Rij rij = new Rij();
+Rij<int> rij = new Rij<int>();
 char keuze = '0';
 
 do {
@@ -23,14 +23,16 @@ do {
             Console.WriteLine("Geef het toe te voegen getal: ");
             rij.Toevoegen(Convert.ToInt32(Console.ReadLine()));
             Console.WriteLine();
-
             break;
         case '2':
-            even= rij.Uithalen();
-            if (even == int.MinValue)
+            if (rij.IsLeeg())
+            {
                 Console.WriteLine("De rij is leeg");
+                Console.WriteLine();
+            }
+            
             else
-                Console.WriteLine("Het eerste getal in de rij was " + even);
+                Console.WriteLine("Het eerste getal in de rij was " + rij.Uithalen());
             Console.WriteLine();
             break;
 
